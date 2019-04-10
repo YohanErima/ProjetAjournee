@@ -17,6 +17,7 @@
 		ECD454AF225DA18B005F0F81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD454AD225DA18B005F0F81 /* LaunchScreen.storyboard */; };
 		ECD454BA225DA18B005F0F81 /* ProjetAjourneeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD454B9225DA18B005F0F81 /* ProjetAjourneeTests.swift */; };
 		ECD454C5225DA18B005F0F81 /* ProjetAjourneeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD454C4225DA18B005F0F81 /* ProjetAjourneeUITests.swift */; };
+		ECD454D4225DA28E005F0F81 /* gamra.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECD454D3225DA28E005F0F81 /* gamra.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		ECD454C0225DA18B005F0F81 /* ProjetAjourneeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetAjourneeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD454C4225DA18B005F0F81 /* ProjetAjourneeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetAjourneeUITests.swift; sourceTree = "<group>"; };
 		ECD454C6225DA18B005F0F81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECD454D3225DA28E005F0F81 /* gamra.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gamra.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				ECD454A2225DA18B005F0F81 /* Actions.sks */,
 				ECD454A4225DA18B005F0F81 /* GameScene.swift */,
 				ECD454A6225DA18B005F0F81 /* GameViewController.swift */,
+				ECD454D2225DA27F005F0F81 /* sounds */,
 				ECD454A8225DA18B005F0F81 /* Main.storyboard */,
 				ECD454AB225DA18B005F0F81 /* Assets.xcassets */,
 				ECD454AD225DA18B005F0F81 /* LaunchScreen.storyboard */,
@@ -132,6 +135,14 @@
 				ECD454C6225DA18B005F0F81 /* Info.plist */,
 			);
 			path = ProjetAjourneeUITests;
+			sourceTree = "<group>";
+		};
+		ECD454D2225DA27F005F0F81 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				ECD454D3225DA28E005F0F81 /* gamra.mp3 */,
+			);
+			path = sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECD454AA225DA18B005F0F81 /* Main.storyboard in Resources */,
+				ECD454D4225DA28E005F0F81 /* gamra.mp3 in Resources */,
 				ECD454A1225DA18B005F0F81 /* GameScene.sks in Resources */,
 				ECD454AC225DA18B005F0F81 /* Assets.xcassets in Resources */,
 				ECD454AF225DA18B005F0F81 /* LaunchScreen.storyboard in Resources */,
