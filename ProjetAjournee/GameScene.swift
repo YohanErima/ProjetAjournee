@@ -33,7 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     var gameTimer:Timer = Timer()
     
-    var possibleNotes = [""]
+    var possibleNotes = ["zero","Boy","cube"]
     override func didMove(to view: SKView) {
         
         self.anchorPoint = CGPoint(x: 0, y: 0)
@@ -85,7 +85,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
        
     }
-    func addNotes() {
+    @objc func addNotes() {
         possibleNotes = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleNotes) as! [String]
         let note = SKSpriteNode(imageNamed: possibleNotes[0])
         
@@ -93,6 +93,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let position = CGFloat(randomNotesPosition.nextInt())
         
         note.position = CGPoint(x: self.frame.size.width + note.size.width , y: position)
+        
+        note.physicsBody = SKPhysicsBody(rectangleOf: note.size)
+        note.physicsBody?.isDynamic = true
+        
+        note.physicsBody?.categoryBitMask = collisionNote
+        note.physicsBody?.contactTestBitMask = collisionPlayer
+        note.physicsBody?.collisionBitMask = 0
+        
+        self.addChild(note)
+        
+        
+        let dureeAnime:TimeInterval = 6
+        
+        var tableauAction = [SKAction]()
+        tableauAction.append(SKAction.move(to: CGPoint(x: -note.size.width, y: position), duration: dureeAnime))
+        tableauAction.append(SKAction.removeFromParent())
+        
+        note.run(SKAction.sequence(tableauAction))
     }
     
     
