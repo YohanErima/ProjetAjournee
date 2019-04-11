@@ -5,7 +5,7 @@
 //  Created by etudiant on 10/04/2019.
 //  Copyright © 2019 etudiant. All rights reserved.
 //
-
+import UIKit
 import SpriteKit
 import GameplayKit
 import AVFoundation
@@ -32,39 +32,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             scoreLabel.text = "Score: \(score)"
         }
     }
+    
     // intervalle de temps entre l'apparition des notes
     var noteTimer:Timer = Timer()
     // tableau de notes possible de 0 a 20
     var possibleNotes = ["zero"]
-    // compte a rebours
-    var startInt = 3
-    var startTimer = Timer()
-    
+
     // compte a rebours du jeu de 60 seconds
-    var gameInt = 60
+    var TimerLabel:SKLabelNode = SKLabelNode()
+    var gameInt: Int = 60 {
+        didSet{
+            TimerLabel.text = " Timer: \(gameInt)"
+        }
+
+    }
     var gameTimer = Timer()
     
     override func didMove(to view: SKView) {
-        
+        // initialisation des variables physics de la scene
         self.anchorPoint = CGPoint(x: 0, y: 0)
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsWorld.contactDelegate = self
         minX=frame.minX
         minY=frame.minY
-        self.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: minX-10 , y: minY-10 , width: frame.width , height: frame.height))
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: minX-10 , y: minY-10 , width: frame.width , height: frame.height))   // création d'un rectangle qui sera le contour de la scene
         
         
         
-        let audioFileURL = Bundle.main.url(forResource: "gamra", withExtension: "mp3")
+        let audioFileURL = Bundle.main.url(forResource: "gamra", withExtension: "mp3")  // importation de la musiquede font
         do {
-            let sound = try AVAudioPlayer(contentsOf: audioFileURL!)
+            let sound = try AVAudioPlayer(contentsOf: audioFileURL!) //récupération de l'url de la musique
             audioPlayer = sound
-            sound.play()
+            sound.play() //  lancement de la musique
         } catch {
             // couldn't load file :(
         }
         
-        let background = SKSpriteNode(imageNamed: "background")
+        let background = SKSpriteNode(imageNamed: "background")  // image de fond , sa position et sa taille
         background.anchorPoint = CGPoint(x: 0, y: 0)
         background.position = CGPoint(x: 0, y: 0)
         background.size.width = frame.size.width
@@ -93,9 +97,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         score = 0
         
         self.addChild(scoreLabel)
+        TimerLabel = SKLabelNode(text : "Score : 0")
+        TimerLabel.position = CGPoint(x: self.frame.size.width - 100 , y: self.frame.size.height - 60)
+        TimerLabel.fontColor = UIColor.yellow
+        gameInt = 5
+        
+        self.addChild(TimerLabel)
  
         noteTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addNotes), userInfo: nil, repeats: true)
-
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Timegame), userInfo: nil, repeats: true)
        
     }
     @objc func addNotes() {
@@ -158,6 +168,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 
         score+=1
 
+    }
+    
+    @objc func Timegame() {
+        
+        gameInt -= 1
+        if gameInt == 0 {
+            gameTimer.invalidate()
+            noteTimer.invalidate()
+            
+        }
     }
     func moveDown(){
         let moveAction:SKAction = SKAction.moveBy(x: 0 ,y: -100, duration: 1)

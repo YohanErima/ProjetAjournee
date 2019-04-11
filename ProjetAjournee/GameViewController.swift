@@ -12,6 +12,7 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    @IBOutlet weak var test: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
