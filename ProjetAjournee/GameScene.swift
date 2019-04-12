@@ -12,6 +12,7 @@ import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
+    
     var minX:CGFloat!
     var minY:CGFloat!
     //declaration des des objets(joueur et les notes)
@@ -174,10 +175,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         gameInt -= 1
         if gameInt == 0 {
+            
             gameTimer.invalidate()
             noteTimer.invalidate()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "FinView")
+            vc.view.frame = (self.view?.frame)!
+            vc.view.layoutIfNeeded()
+            
+            UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
+                {
+                    self.view?.window?.rootViewController = vc
+            }, completion: { completed in
+                
+            })
             
         }
+        
     }
     func moveDown(){
         let moveAction:SKAction = SKAction.moveBy(x: 0 ,y: -100, duration: 1)

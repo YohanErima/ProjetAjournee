@@ -33,7 +33,7 @@ class TimerView: UIViewController {
         startInt -= 1
         CompteRebours.text = String(startInt)
         if startInt == 0 {
-            
+            performSegue(withIdentifier: "Jouer", sender: nil)
     }
    
 }
