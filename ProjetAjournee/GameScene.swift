@@ -41,7 +41,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 
     // compte a rebours du jeu de 60 seconds
     var TimerLabel:SKLabelNode = SKLabelNode()
-    var gameInt: Int = 60 {
+    var gameInt: Int = 0 {
         didSet{
             TimerLabel.text = " Timer: \(gameInt)"
         }
@@ -98,10 +98,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         score = 0
         
         self.addChild(scoreLabel)
-        TimerLabel = SKLabelNode(text : "Score : 0")
+        TimerLabel = SKLabelNode(text : "Timer : 0")
         TimerLabel.position = CGPoint(x: self.frame.size.width - 100 , y: self.frame.size.height - 60)
         TimerLabel.fontColor = UIColor.yellow
-        gameInt = 5
+        gameInt = 60
         
         self.addChild(TimerLabel)
  
