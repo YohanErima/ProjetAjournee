@@ -60,7 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         
         
-        let audioFileURL = Bundle.main.url(forResource: "gamra", withExtension: "mp3")  // importation de la musiquede font
+        let audioFileURL = Bundle.main.url(forResource: "gamra", withExtension: "mp3")  // importation de la musique de font
         do {
             let sound = try AVAudioPlayer(contentsOf: audioFileURL!) //récupération de l'url de la musique
             audioPlayer = sound
@@ -77,8 +77,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         background.zPosition = -1
         
-        self.addChild(background)
-        
+        self.addChild(background) // ajoute du background dans la scene
+        //  création SKSpriteNode player qui sera notre joueur
+        // Sa position initial et sa physic
+        // ajoute des variable de collision
         player = SKSpriteNode(imageNamed : "fille")
         player.name = "player"
         player.zPosition = 0
@@ -90,12 +92,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         player.physicsBody?.collisionBitMask = collisionNote
         player.physicsBody?.contactTestBitMask = 0
         
+        //ajoute du joueur a la scene
         self.addChild(player)
         
+        // cration de du label score qui sera afficher sur la scene
         scoreLabel = SKLabelNode(text : "Score : 0")
         scoreLabel.position = CGPoint(x: 100, y: self.frame.size.height - 60)
         scoreLabel.fontColor = UIColor.darkGray
         score = 0
+        
         
         self.addChild(scoreLabel)
         TimerLabel = SKLabelNode(text : "Timer : 0")
