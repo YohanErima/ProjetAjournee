@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HJG-hf-cvI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HJG-hf-cvI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -64,26 +64,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fin du temps impartie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVu-kk-rly">
-                                <rect key="frame" x="104" y="20" width="166" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time out !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qaf-YU-lQp">
+                                <rect key="frame" x="149" y="54" width="77" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTF-1L-BGD">
-                                <rect key="frame" x="149" y="216" width="76" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGT-fr-kus">
+                                <rect key="frame" x="39" y="117" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="moyenne : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05S-Pc-w9g">
+                                <rect key="frame" x="216" y="116" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMS-PD-09Z">
+                                <rect key="frame" x="171" y="318" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Enregistrer"/>
+                                <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Qaf-YU-lQp" firstAttribute="leading" secondItem="HRp-6m-od8" secondAttribute="leading" constant="149" id="4bT-RG-c3m"/>
+                            <constraint firstItem="HRp-6m-od8" firstAttribute="trailing" secondItem="Qaf-YU-lQp" secondAttribute="trailing" constant="149" id="CjP-Sz-Ewo"/>
+                            <constraint firstItem="HRp-6m-od8" firstAttribute="bottom" secondItem="EGT-fr-kus" secondAttribute="bottom" constant="529" id="JQJ-zO-N9B"/>
+                            <constraint firstItem="05S-Pc-w9g" firstAttribute="leading" secondItem="EGT-fr-kus" secondAttribute="trailing" constant="119" id="VfJ-Ox-KRN"/>
+                            <constraint firstItem="EGT-fr-kus" firstAttribute="leading" secondItem="HRp-6m-od8" secondAttribute="leading" constant="39" id="YHa-xG-qwc"/>
+                            <constraint firstItem="05S-Pc-w9g" firstAttribute="top" secondItem="Qaf-YU-lQp" secondAttribute="bottom" constant="41" id="cFk-MK-daJ"/>
+                            <constraint firstItem="EGT-fr-kus" firstAttribute="top" secondItem="HRp-6m-od8" secondAttribute="top" constant="97" id="n4C-wb-m2H"/>
+                            <constraint firstItem="Qaf-YU-lQp" firstAttribute="top" secondItem="HRp-6m-od8" secondAttribute="top" constant="34" id="r3K-QZ-FZS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HRp-6m-od8"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRu-sN-d05" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1286" y="130"/>
+            <point key="canvasLocation" x="1285.5999999999999" y="129.98500749625188"/>
         </scene>
     </scenes>
 </document>

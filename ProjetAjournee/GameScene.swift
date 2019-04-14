@@ -106,7 +106,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         TimerLabel = SKLabelNode(text : "Timer : 0")
         TimerLabel.position = CGPoint(x: self.frame.size.width - 100 , y: self.frame.size.height - 60)
         TimerLabel.fontColor = UIColor.yellow
-        gameInt = 60
+        gameInt = 10
         
         self.addChild(TimerLabel)
  
@@ -187,14 +187,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let vc = storyboard.instantiateViewController(withIdentifier: "FinView")
             vc.view.frame = (self.view?.frame)!
             vc.view.layoutIfNeeded()
-            
+
             UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
                 {
                     self.view?.window?.rootViewController = vc
             }, completion: { completed in
-                
+
             })
-            
+           
         }
         
     }

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E6B36AA82262F60B006D085E /* SceneGameOver.sks in Resources */ = {isa = PBXBuildFile; fileRef = E6B36AA72262F60B006D085E /* SceneGameOver.sks */; };
-		E6B36AAA2262FAC1006D085E /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B36AA92262FAC1006D085E /* GameOverScene.swift */; };
 		EC685883225F543E00B9A01B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC685882225F543E00B9A01B /* TimerView.swift */; };
 		EC685885225F792500B9A01B /* FinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC685884225F792500B9A01B /* FinView.swift */; };
 		ECD4549F225DA18B005F0F81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD4549E225DA18B005F0F81 /* AppDelegate.swift */; };
@@ -19,7 +17,6 @@
 		ECD454AA225DA18B005F0F81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD454A8225DA18B005F0F81 /* Main.storyboard */; };
 		ECD454AC225DA18B005F0F81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD454AB225DA18B005F0F81 /* Assets.xcassets */; };
 		ECD454AF225DA18B005F0F81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD454AD225DA18B005F0F81 /* LaunchScreen.storyboard */; };
-		ECD454BA225DA18B005F0F81 /* ProjetAjourneeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD454B9225DA18B005F0F81 /* ProjetAjourneeTests.swift */; };
 		ECD454C5225DA18B005F0F81 /* ProjetAjourneeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD454C4225DA18B005F0F81 /* ProjetAjourneeUITests.swift */; };
 		ECD454D4225DA28E005F0F81 /* gamra.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECD454D3225DA28E005F0F81 /* gamra.mp3 */; };
 /* End PBXBuildFile section */
@@ -42,8 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E6B36AA72262F60B006D085E /* SceneGameOver.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SceneGameOver.sks; sourceTree = "<group>"; };
-		E6B36AA92262FAC1006D085E /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		EC685882225F543E00B9A01B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		EC685884225F792500B9A01B /* FinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinView.swift; sourceTree = "<group>"; };
 		ECD4549B225DA18B005F0F81 /* ProjetAjournee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetAjournee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,8 +52,6 @@
 		ECD454AE225DA18B005F0F81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECD454B0225DA18B005F0F81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECD454B5225DA18B005F0F81 /* ProjetAjourneeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetAjourneeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECD454B9225DA18B005F0F81 /* ProjetAjourneeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetAjourneeTests.swift; sourceTree = "<group>"; };
-		ECD454BB225DA18B005F0F81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECD454C0225DA18B005F0F81 /* ProjetAjourneeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetAjourneeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD454C4225DA18B005F0F81 /* ProjetAjourneeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetAjourneeUITests.swift; sourceTree = "<group>"; };
 		ECD454C6225DA18B005F0F81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -94,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				ECD4549D225DA18B005F0F81 /* ProjetAjournee */,
-				ECD454B8225DA18B005F0F81 /* ProjetAjourneeTests */,
 				ECD454C3225DA18B005F0F81 /* ProjetAjourneeUITests */,
 				ECD4549C225DA18B005F0F81 /* Products */,
 			);
@@ -125,19 +117,8 @@
 				ECD454AB225DA18B005F0F81 /* Assets.xcassets */,
 				ECD454AD225DA18B005F0F81 /* LaunchScreen.storyboard */,
 				ECD454B0225DA18B005F0F81 /* Info.plist */,
-				E6B36AA72262F60B006D085E /* SceneGameOver.sks */,
-				E6B36AA92262FAC1006D085E /* GameOverScene.swift */,
 			);
 			path = ProjetAjournee;
-			sourceTree = "<group>";
-		};
-		ECD454B8225DA18B005F0F81 /* ProjetAjourneeTests */ = {
-			isa = PBXGroup;
-			children = (
-				ECD454B9225DA18B005F0F81 /* ProjetAjourneeTests.swift */,
-				ECD454BB225DA18B005F0F81 /* Info.plist */,
-			);
-			path = ProjetAjourneeTests;
 			sourceTree = "<group>";
 		};
 		ECD454C3225DA18B005F0F81 /* ProjetAjourneeUITests */ = {
@@ -267,7 +248,6 @@
 				ECD454AA225DA18B005F0F81 /* Main.storyboard in Resources */,
 				ECD454D4225DA28E005F0F81 /* gamra.mp3 in Resources */,
 				ECD454A1225DA18B005F0F81 /* GameScene.sks in Resources */,
-				E6B36AA82262F60B006D085E /* SceneGameOver.sks in Resources */,
 				ECD454AC225DA18B005F0F81 /* Assets.xcassets in Resources */,
 				ECD454AF225DA18B005F0F81 /* LaunchScreen.storyboard in Resources */,
 				ECD454A3225DA18B005F0F81 /* Actions.sks in Resources */,
@@ -299,7 +279,6 @@
 				EC685885225F792500B9A01B /* FinView.swift in Sources */,
 				ECD454A7225DA18B005F0F81 /* GameViewController.swift in Sources */,
 				EC685883225F543E00B9A01B /* TimerView.swift in Sources */,
-				E6B36AAA2262FAC1006D085E /* GameOverScene.swift in Sources */,
 				ECD4549F225DA18B005F0F81 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +287,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECD454BA225DA18B005F0F81 /* ProjetAjourneeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
