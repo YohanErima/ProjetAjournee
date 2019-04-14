@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6B36AA82262F60B006D085E /* SceneGameOver.sks in Resources */ = {isa = PBXBuildFile; fileRef = E6B36AA72262F60B006D085E /* SceneGameOver.sks */; };
+		E6B36AAA2262FAC1006D085E /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B36AA92262FAC1006D085E /* GameOverScene.swift */; };
 		EC685883225F543E00B9A01B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC685882225F543E00B9A01B /* TimerView.swift */; };
 		EC685885225F792500B9A01B /* FinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC685884225F792500B9A01B /* FinView.swift */; };
 		ECD4549F225DA18B005F0F81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD4549E225DA18B005F0F81 /* AppDelegate.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E6B36AA72262F60B006D085E /* SceneGameOver.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SceneGameOver.sks; sourceTree = "<group>"; };
+		E6B36AA92262FAC1006D085E /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		EC685882225F543E00B9A01B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		EC685884225F792500B9A01B /* FinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinView.swift; sourceTree = "<group>"; };
 		ECD4549B225DA18B005F0F81 /* ProjetAjournee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetAjournee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +125,8 @@
 				ECD454AB225DA18B005F0F81 /* Assets.xcassets */,
 				ECD454AD225DA18B005F0F81 /* LaunchScreen.storyboard */,
 				ECD454B0225DA18B005F0F81 /* Info.plist */,
+				E6B36AA72262F60B006D085E /* SceneGameOver.sks */,
+				E6B36AA92262FAC1006D085E /* GameOverScene.swift */,
 			);
 			path = ProjetAjournee;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 				ECD454AA225DA18B005F0F81 /* Main.storyboard in Resources */,
 				ECD454D4225DA28E005F0F81 /* gamra.mp3 in Resources */,
 				ECD454A1225DA18B005F0F81 /* GameScene.sks in Resources */,
+				E6B36AA82262F60B006D085E /* SceneGameOver.sks in Resources */,
 				ECD454AC225DA18B005F0F81 /* Assets.xcassets in Resources */,
 				ECD454AF225DA18B005F0F81 /* LaunchScreen.storyboard in Resources */,
 				ECD454A3225DA18B005F0F81 /* Actions.sks in Resources */,
@@ -292,6 +299,7 @@
 				EC685885225F792500B9A01B /* FinView.swift in Sources */,
 				ECD454A7225DA18B005F0F81 /* GameViewController.swift in Sources */,
 				EC685883225F543E00B9A01B /* TimerView.swift in Sources */,
+				E6B36AAA2262FAC1006D085E /* GameOverScene.swift in Sources */,
 				ECD4549F225DA18B005F0F81 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
