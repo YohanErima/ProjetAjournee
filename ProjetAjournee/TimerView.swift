@@ -19,6 +19,7 @@ class TimerView: UIViewController {
         super.viewDidLoad()
         
         CompteRebours.text = String(startInt)
+        // intervale a laquelle decrement le timer 
         startTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerView.startGameTimer), userInfo: nil, repeats: true)
 
       
@@ -30,6 +31,7 @@ class TimerView: UIViewController {
     }
     
     @objc func startGameTimer() {
+        // compte a rebours avant lancement de la partie commençant a 3 et la fonction decrement de 1 a chaque fois
         startInt -= 1
         CompteRebours.text = String(startInt)
         if startInt == 0 {

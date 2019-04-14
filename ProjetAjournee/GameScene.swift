@@ -10,6 +10,12 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
 
+
+struct StrucScore {
+    static var ScoreduJeu:Int = 0
+    static var MoyenneduJeu:Float = 0
+}
+
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
     
@@ -28,16 +34,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var monter: CGVector = CGVector(dx: 0, dy: 200)
     // score et nombre de note pris
     var scoreLabel:SKLabelNode = SKLabelNode()
+    var nombreNotePris: Int = 0
+    var Moyenne:Float = 0
     var score: Int = 0 {
         didSet {
             scoreLabel.text = "Score: \(score)"
         }
     }
-    
+    var marks:String = ""
     // intervalle de temps entre l'apparition des notes
     var noteTimer:Timer = Timer()
     // tableau de notes possible de 0 a 20
-    var possibleNotes = ["zero"]
+    var possibleNotes = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 
     // compte a rebours du jeu de 60 seconds
     var TimerLabel:SKLabelNode = SKLabelNode()
@@ -69,7 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             // couldn't load file :(
         }
         
-        let background = SKSpriteNode(imageNamed: "background")  // image de fond , sa position et sa taille
+        let background = SKSpriteNode(imageNamed: "backgroung")  // image de fond , sa position et sa taille
         background.anchorPoint = CGPoint(x: 0, y: 0)
         background.position = CGPoint(x: 0, y: 0)
         background.size.width = frame.size.width
@@ -81,12 +89,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         //  création SKSpriteNode player qui sera notre joueur
         // Sa position initial et sa physic
         // ajoute des variable de collision
-        player = SKSpriteNode(imageNamed : "fille")
+        player = SKSpriteNode(imageNamed : "repose")
         player.name = "player"
         player.zPosition = 0
         player.position = CGPoint(x: player.size.width/2, y: player.size.height/2 + 1000)
         player.anchorPoint = CGPoint(x: 0, y: 0)
-        player.physicsBody?.isDynamic = true
+        player.physicsBody?.isDynamic = false
         player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
         player.physicsBody?.categoryBitMask = collisionPlayer
         player.physicsBody?.collisionBitMask = collisionNote
@@ -98,7 +106,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         // cration de du label score qui sera afficher sur la scene
         scoreLabel = SKLabelNode(text : "Score : 0")
         scoreLabel.position = CGPoint(x: 100, y: self.frame.size.height - 60)
-        scoreLabel.fontColor = UIColor.darkGray
+        scoreLabel.fontColor = UIColor.red
+        scoreLabel.fontSize = 42
         score = 0
         
         
@@ -106,38 +115,48 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         TimerLabel = SKLabelNode(text : "Timer : 0")
         TimerLabel.position = CGPoint(x: self.frame.size.width - 100 , y: self.frame.size.height - 60)
         TimerLabel.fontColor = UIColor.yellow
-        gameInt = 10
+        TimerLabel.fontSize = 42
+        gameInt = variableNote.temps
         
         self.addChild(TimerLabel)
  
-        noteTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addNotes), userInfo: nil, repeats: true)
+        noteTimer = Timer.scheduledTimer(timeInterval: TimeInterval(variableNote.intervale), target: self, selector: #selector(addNotes), userInfo: nil, repeats: true)
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Timegame), userInfo: nil, repeats: true)
        
     }
     @objc func addNotes() {
         
+        // valeur ramdom dans le tableau de valeur de 0 a 20
+        possibleNotes = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleNotes) as! [Int]
+        let note = SKSpriteNode(imageNamed: "\(possibleNotes[0])")
+        note.name = "\(possibleNotes[0])"
         
-        possibleNotes = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleNotes) as! [String]
-        let note = SKSpriteNode(imageNamed: possibleNotes[0])
-        note.name = "note"
-        
+        // valeur aleatoire pour la position en Y
         let randomNotesPosition = GKRandomDistribution(lowestValue: 0, highestValue: 1334)
         let position = CGFloat(randomNotesPosition.nextInt())
+        
 
+        // initialisation des variable des notes : position , la physics et la position en Z
         note.position = CGPoint(x: self.frame.size.width + note.size.width , y: position)
 
         note.physicsBody = SKPhysicsBody(rectangleOf: note.size)
         note.physicsBody?.isDynamic = true
+        note.zPosition = 1
 
+        // variables pour detecter la collision
         note.physicsBody?.categoryBitMask = collisionNote
         note.physicsBody?.contactTestBitMask = collisionPlayer
         note.physicsBody?.collisionBitMask = 0
 
+        
+        //ajoute de la note a la scene
         self.addChild(note)
 
 
         let dureeAnime:TimeInterval = 6
+        
 
+        // creation de la  table d'action de la note
         var tableauAction = [SKAction]()
         tableauAction.append(SKAction.move(to: CGPoint(x: -note.size.width, y: position), duration: dureeAnime))
         tableauAction.append(SKAction.removeFromParent())
@@ -146,10 +165,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
+        
+        // fonction pour la detection de la collision entre la note et le joueur ou bien  avec le mur
+        // la verification est fait grace a contact au valeur attribuer au mur , joueur et la note
         var Premierobjet:SKPhysicsBody
         var Secondobjet:SKPhysicsBody
 
-        if (contact.bodyA.node?.name == "player" && contact.bodyB.node?.name == "note")
+        if ((contact.bodyA.categoryBitMask == collisionNote && contact.bodyB.categoryBitMask == collisionPlayer) || (contact.bodyB.categoryBitMask == collisionNote && contact.bodyA.categoryBitMask == collisionPlayer) )
         {
             if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
                 Premierobjet = contact.bodyA
@@ -166,47 +188,90 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             } else {
                 PlayerVsNote(Note20: Secondobjet.node as! SKSpriteNode )            }
     }
+        if ((contact.bodyA.categoryBitMask == collisionNote && contact.bodyB.categoryBitMask == collisionscene) || (contact.bodyB.categoryBitMask == collisionNote && contact.bodyA.categoryBitMask == collisionscene) )
+        {
+            if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+                Premierobjet = contact.bodyA
+                Secondobjet = contact.bodyB
+                
+            } else {
+                Secondobjet = contact.bodyA
+                Premierobjet = contact.bodyB
+                
+            }
+            
+            if (Premierobjet.categoryBitMask & collisionNote) != 0 && (Secondobjet.categoryBitMask & collisionPlayer) != 0{
+                WallVsNote(Note20: Premierobjet.node as! SKSpriteNode )
+            } else {
+                WallVsNote(Note20: Secondobjet.node as! SKSpriteNode )            }
+        }
     }
+    
+    
+    // fonction qui lors d'une collision recupère la valeur de la note et l'incrémente au score
+    // incrémente le nombre de note récupérer
+    // et supprime l'image de la scene
 
 
     func PlayerVsNote(Note20:SKSpriteNode){
+        let nameNote:String = Note20.name!
         Note20.removeFromParent()
 
-        score+=1
+        score+=Int(nameNote)!
+        nombreNotePris += 1
 
     }
+    func WallVsNote(Note20:SKSpriteNode){
+        Note20.removeFromParent()
+        
+        
+    }
+    
     
     @objc func Timegame() {
-        
+        // timer il decrement de 1 la valeur gameInt qui est notre timer
         gameInt -= 1
+        
+        // test si le timer est arriver a zéro si oui il récupère les donnée dans la struct StrucScore et transite vers GameO qui est la vue du temps terminer
         if gameInt == 0 {
-            
-            gameTimer.invalidate()
-            noteTimer.invalidate()
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "FinView")
-            vc.view.frame = (self.view?.frame)!
-            vc.view.layoutIfNeeded()
-
-            UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
-                {
-                    self.view?.window?.rootViewController = vc
-            }, completion: { completed in
-
-            })
-           
+            self.audioPlayer.pause()
+            Moyenne = Float(score) / Float(nombreNotePris)
+            StrucScore.ScoreduJeu = score
+            StrucScore.MoyenneduJeu = Moyenne
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "FinView")
+//            
+//            vc.view.frame = (self.view?.frame)!
+//            vc.view.layoutIfNeeded()
+//
+//            UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
+//                {
+//                    self.view?.window?.rootViewController = vc
+//            }, completion: { completed in
+//
+//            })
+            let reveal = SKTransition.doorsCloseHorizontal(withDuration: 0.6)
+            let GameOver = GameO(size: self.size)
+            GameOver.scoreLabel.text = String(score)
+            self.view?.presentScene(GameOver, transition: reveal)
         }
         
     }
     func moveDown(){
-        let moveAction:SKAction = SKAction.moveBy(x: 0 ,y: -100, duration: 1)
+        // action de deplacement verticale (descendre)
+        let moveAction:SKAction = SKAction.moveBy(x: 0 ,y: CGFloat(-variableNote.deplacement), duration: 1)
         player.run(moveAction)
     }
     func moveUP(){
-        let moveAction:SKAction = SKAction.moveBy(x: 0 ,y: +100, duration: 1)
+        // action de deplacement verticale (monter)
+        let moveAction:SKAction = SKAction.moveBy(x: 0 ,y: CGFloat(+variableNote.deplacement), duration: 1)
         player.run(moveAction)
     }
     func touchDown(atPoint pos : CGPoint) {
+        
+        //dectection de l'endroit ou clique la souris
+        //dans la moitier haute de l'écran il monte
+        // moitier bas il descend
         if (pos.y > self.frame.height/2){
            moveUP()
         }else {

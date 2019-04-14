@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6B36AB0226340E4006D085E /* GameO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B36AAF226340E4006D085E /* GameO.swift */; };
+		E6B36AB6226372BB006D085E /* ChoixNiveauViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B36AB5226372BB006D085E /* ChoixNiveauViewController.swift */; };
+		E6B36AB82263734E006D085E /* AcceuilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B36AB72263734E006D085E /* AcceuilViewController.swift */; };
 		EC685883225F543E00B9A01B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC685882225F543E00B9A01B /* TimerView.swift */; };
 		EC685885225F792500B9A01B /* FinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC685884225F792500B9A01B /* FinView.swift */; };
 		ECD4549F225DA18B005F0F81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD4549E225DA18B005F0F81 /* AppDelegate.swift */; };
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E6B36AAF226340E4006D085E /* GameO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameO.swift; sourceTree = "<group>"; };
+		E6B36AB5226372BB006D085E /* ChoixNiveauViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoixNiveauViewController.swift; sourceTree = "<group>"; };
+		E6B36AB72263734E006D085E /* AcceuilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceuilViewController.swift; sourceTree = "<group>"; };
 		EC685882225F543E00B9A01B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		EC685884225F792500B9A01B /* FinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinView.swift; sourceTree = "<group>"; };
 		ECD4549B225DA18B005F0F81 /* ProjetAjournee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetAjournee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +123,9 @@
 				ECD454AB225DA18B005F0F81 /* Assets.xcassets */,
 				ECD454AD225DA18B005F0F81 /* LaunchScreen.storyboard */,
 				ECD454B0225DA18B005F0F81 /* Info.plist */,
+				E6B36AAF226340E4006D085E /* GameO.swift */,
+				E6B36AB5226372BB006D085E /* ChoixNiveauViewController.swift */,
+				E6B36AB72263734E006D085E /* AcceuilViewController.swift */,
 			);
 			path = ProjetAjournee;
 			sourceTree = "<group>";
@@ -275,7 +284,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6B36AB6226372BB006D085E /* ChoixNiveauViewController.swift in Sources */,
 				ECD454A5225DA18B005F0F81 /* GameScene.swift in Sources */,
+				E6B36AB0226340E4006D085E /* GameO.swift in Sources */,
+				E6B36AB82263734E006D085E /* AcceuilViewController.swift in Sources */,
 				EC685885225F792500B9A01B /* FinView.swift in Sources */,
 				ECD454A7225DA18B005F0F81 /* GameViewController.swift in Sources */,
 				EC685883225F543E00B9A01B /* TimerView.swift in Sources */,

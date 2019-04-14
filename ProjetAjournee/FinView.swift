@@ -10,8 +10,14 @@ import UIKit
 
 class FinView: UIViewController {
 
+    @IBOutlet weak var ScoreLabel: UILabel!
+    @IBOutlet weak var ButtonSave: UIButton!
+    @IBOutlet weak var Accueil: UIButton!
+    @IBOutlet weak var Moyenne: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ScoreLabel.text = String(StrucScore.ScoreduJeu)
+
 
         // Do any additional setup after loading the view.
     }
@@ -19,6 +25,10 @@ class FinView: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    @IBAction func Save(_ sender: Any) {
+    }
+    @IBAction func RetourAccueil(_ sender: Any) {
     }
     
 
