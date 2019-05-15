@@ -28,34 +28,24 @@ class ChoixNiveauViewController: UIViewController {
     }
     
     @IBAction func AcL1(_ sender: Any) {
-        variableNote.intervale = 1
-        variableNote.deplacement = 60
 
-        variableNote.temps = 6
+        variableNote.temps = 10
     }
     @IBAction func AcL2(_ sender: Any) {
-        variableNote.intervale = 0.75
-        variableNote.deplacement = 60
-        variableNote.temps = 6
+        variableNote.temps = 40
     }
     
     @IBAction func acL3(_ sender: Any) {
-        variableNote.intervale = 0.75
-        variableNote.deplacement = 80
-        variableNote.temps = 4
+        variableNote.temps = 20
         
     }
     
     @IBAction func acM1(_ sender: Any) {
-        variableNote.deplacement = 60
-        variableNote.intervale = 0.75
-        variableNote.temps = 4
+        variableNote.temps = 15
     }
     
     @IBAction func ACM2(_ sender: Any) {
-        variableNote.deplacement = 60
-        variableNote.intervale = 0.75
-        variableNote.temps = 3
+        variableNote.temps = 10
         
 
 

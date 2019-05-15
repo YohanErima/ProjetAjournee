@@ -22,6 +22,7 @@
 		ECD454AF225DA18B005F0F81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD454AD225DA18B005F0F81 /* LaunchScreen.storyboard */; };
 		ECD454C5225DA18B005F0F81 /* ProjetAjourneeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD454C4225DA18B005F0F81 /* ProjetAjourneeUITests.swift */; };
 		ECD454D4225DA28E005F0F81 /* gamra.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECD454D3225DA28E005F0F81 /* gamra.mp3 */; };
+		ECE15DFF228BECAD0099F175 /* TableScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE15DFE228BECAD0099F175 /* TableScoreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		ECD454C4225DA18B005F0F81 /* ProjetAjourneeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetAjourneeUITests.swift; sourceTree = "<group>"; };
 		ECD454C6225DA18B005F0F81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECD454D3225DA28E005F0F81 /* gamra.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gamra.mp3; sourceTree = "<group>"; };
+		ECE15DFE228BECAD0099F175 /* TableScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableScoreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				ECD454A6225DA18B005F0F81 /* GameViewController.swift */,
 				ECD454D2225DA27F005F0F81 /* sounds */,
 				ECD454A8225DA18B005F0F81 /* Main.storyboard */,
+				ECE15DFE228BECAD0099F175 /* TableScoreViewController.swift */,
 				EC685884225F792500B9A01B /* FinView.swift */,
 				ECD454AB225DA18B005F0F81 /* Assets.xcassets */,
 				ECD454AD225DA18B005F0F81 /* LaunchScreen.storyboard */,
@@ -285,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6B36AB6226372BB006D085E /* ChoixNiveauViewController.swift in Sources */,
+				ECE15DFF228BECAD0099F175 /* TableScoreViewController.swift in Sources */,
 				ECD454A5225DA18B005F0F81 /* GameScene.swift in Sources */,
 				E6B36AB0226340E4006D085E /* GameO.swift in Sources */,
 				E6B36AB82263734E006D085E /* AcceuilViewController.swift in Sources */,

@@ -31,7 +31,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     // declaration de audioPlayer
     var audioPlayer = AVAudioPlayer()
     // vecteur pour le deplacement vers le haut du joueur
-    var monter: CGVector = CGVector(dx: 0, dy: 200)
+    var monter: CGPoint = CGPoint(x: 0, y: 1334)
+    var descendre: CGPoint = CGPoint(x: 0, y: 0)
     // score et nombre de note pris
     var scoreLabel:SKLabelNode = SKLabelNode()
     var nombreNotePris: Int = 0
@@ -105,6 +106,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         // cration de du label score qui sera afficher sur la scene
         scoreLabel = SKLabelNode(text : "Score : 0")
+        scoreLabel.fontName = "Helvetica Neue"
         scoreLabel.position = CGPoint(x: 100, y: self.frame.size.height - 60)
         scoreLabel.fontColor = UIColor.red
         scoreLabel.fontSize = 42
@@ -113,6 +115,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         self.addChild(scoreLabel)
         TimerLabel = SKLabelNode(text : "Timer : 0")
+        TimerLabel.fontName = "Helvetica Neue"
         TimerLabel.position = CGPoint(x: self.frame.size.width - 100 , y: self.frame.size.height - 60)
         TimerLabel.fontColor = UIColor.yellow
         TimerLabel.fontSize = 42
@@ -120,7 +123,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         self.addChild(TimerLabel)
  
-        noteTimer = Timer.scheduledTimer(timeInterval: TimeInterval(variableNote.intervale), target: self, selector: #selector(addNotes), userInfo: nil, repeats: true)
+        noteTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addNotes), userInfo: nil, repeats: true)
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Timegame), userInfo: nil, repeats: true)
        
     }
@@ -218,6 +221,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         Note20.removeFromParent()
 
         score+=Int(nameNote)!
+        if (Int(nameNote)! > 15){
+            gameInt = gameInt + 2
+        }else if(Int(nameNote)! < 10) { gameInt = gameInt - 2 }
+        
         nombreNotePris += 1
 
     }
@@ -233,7 +240,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         gameInt -= 1
         
         // test si le timer est arriver a zéro si oui il récupère les donnée dans la struct StrucScore et transite vers GameO qui est la vue du temps terminer
-        if gameInt == 0 {
+        if gameInt <= 0 {
             self.audioPlayer.pause()
             Moyenne = Float(score) / Float(nombreNotePris)
             StrucScore.ScoreduJeu = score
@@ -259,24 +266,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     func moveDown(){
         // action de deplacement verticale (descendre)
-        let moveAction:SKAction = SKAction.moveBy(x: 0 ,y: CGFloat(-variableNote.deplacement), duration: 1)
-        player.run(moveAction)
+        // let wait:SKAction = SKAction.wait(duration:0.2)
+        let descendreAnime:SKAction = SKAction(named: "descendre")!
+        let moveAction:SKAction = SKAction.move(by: CGVector(dx:0,dy:-100), duration: 1)
+        
+        let group:SKAction = SKAction.group([descendreAnime,moveAction])
+        player.run(group)
     }
     func moveUP(){
         // action de deplacement verticale (monter)
-        let moveAction:SKAction = SKAction.moveBy(x: 0 ,y: CGFloat(+variableNote.deplacement), duration: 1)
-        player.run(moveAction)
+        let monterAnime:SKAction = SKAction(named: "monter")!
+        let moveAction:SKAction = SKAction.move(by: CGVector(dx:0,dy:100), duration: 1)
+        
+        let group:SKAction = SKAction.group([monterAnime,moveAction])
+        player.run(group)
     }
     func touchDown(atPoint pos : CGPoint) {
         
         //dectection de l'endroit ou clique la souris
         //dans la moitier haute de l'écran il monte
         // moitier bas il descend
-        if (pos.y > self.frame.height/2){
-           moveUP()
-        }else {
-            moveDown()
-        }
+//        if (pos.y > self.frame.height/2){
+//           moveUP()
+//        }else {
+//            moveDown()
+//        }
     }
     
     func touchMoved(toPoint pos : CGPoint) {
@@ -291,19 +305,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
        
         
         for t in touches { self.touchDown(atPoint: t.location(in: self))
-            break
+            if (t.location(in: self).y > self.frame.height/2){
+                moveUP()
+            }else {
+                moveDown()
+            }
         }
         
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-         for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
+         for t in touches { self.touchMoved(toPoint: t.location(in: self))
+            break
+        }
         
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
       for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-        
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {

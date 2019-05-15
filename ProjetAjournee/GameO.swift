@@ -13,12 +13,13 @@ class GameO: SKScene {
     var scoreLabel:SKLabelNode = SKLabelNode()
     var MoyenneLabel:SKLabelNode = SKLabelNode()
     var LabelTime : SKLabelNode = SKLabelNode()
+    var ResultatLabel : SKLabelNode = SKLabelNode()
     override func didMove(to view: SKView) {
         
         self.backgroundColor = UIColor.white
         self.anchorPoint = CGPoint(x: 0, y: 0)
         self.zPosition = 0
-        
+        LabelTime.fontName = "Helvetica Neue"
         LabelTime.zPosition = 1
         LabelTime.fontSize = 42
         LabelTime.text = String("Temps imparti terminer ")
@@ -27,8 +28,9 @@ class GameO: SKScene {
         self.addChild(LabelTime)
         
         // recupération du score stocker dans la strucScore et l'affichage en l'ajoutant a la scene
+        scoreLabel.fontName = "Helvetica Neue"
         scoreLabel.text = String("Score : \(StrucScore.ScoreduJeu)")
-        scoreLabel.position = CGPoint(x: 100, y: self.frame.size.height/2)
+        scoreLabel.position = CGPoint(x: 150, y: self.frame.size.height/2)
         scoreLabel.fontSize = 42
         scoreLabel.fontColor = UIColor.black
         scoreLabel.zPosition = 1
@@ -36,6 +38,7 @@ class GameO: SKScene {
         
         
          // recupération du score stocker dans la strucScore et l'affichage en l'ajoutant a la scene
+        MoyenneLabel.fontName = "Helvetica Neue"
         MoyenneLabel.text = String("Moyenne : \(StrucScore.MoyenneduJeu)")
         MoyenneLabel.position = CGPoint(x: self.frame.size.width - 200, y: self.frame.size.height/2)
         MoyenneLabel.fontSize = 42
@@ -43,6 +46,18 @@ class GameO: SKScene {
         MoyenneLabel.zPosition = 1
         
         self.addChild(MoyenneLabel)
+        
+        ResultatLabel.fontName = "Helvetica Neue"
+        ResultatLabel.zPosition = 1
+        ResultatLabel.fontSize = 42
+        ResultatLabel.position = CGPoint(x: 320, y: self.frame.size.height/2 - 100)
+        ResultatLabel.fontColor = UIColor.black
+        if (StrucScore.MoyenneduJeu<10.0){
+            ResultatLabel.text = String("Vous êtes ajournée je suis désolé")
+        }else {
+            ResultatLabel.text = String("Vous êtes admis Félicitation")
+        }
+        self.addChild(ResultatLabel)
         
         let NewGame:SKSpriteNode = SKSpriteNode(imageNamed: "replay")
         NewGame.anchorPoint = CGPoint(x: 0, y: 0)
